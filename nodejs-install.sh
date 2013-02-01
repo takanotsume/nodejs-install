@@ -55,10 +55,10 @@ if [ $nodeNpmInstalled == 1 ]; then
     git clone https://github.com/takanotsume/nodejs-simple-server.git
     cd nodejs-simple-server
     npm install
-    node ./server.js &
+    node /tmp/nodejs-simple-server/server.js &
     firefox http://127.0.0.1:8008 &
     sleep 5
-    pkill node
+    pkill -9 -f "node /tmp/nodejs-simple-server/server.js"
 fi
 tput init
 
