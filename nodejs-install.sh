@@ -1,9 +1,9 @@
-#!/bin/bash   
+#!/bin/bash
 #title           :nodejs-install.sh
 #description     :This script will install node, npm and npm packages
 #author		 :msim
 #date            :20130102
-#version         :0.1    
+#version         :0.1
 #usage		 :bash nodejs-install.sh
 #==============================================================================
 tput init
@@ -58,5 +58,10 @@ if [ $nodeNpmInstalled == 1 ]; then
 fi
 if [ $nodeNpmInstalled == 1 ] && [ $npmPackagesInstalled=1 ]; then
     echo "The cards are in your hands. Now it is up to you \"Pressure makes diamonds\""
+    node ./apps/simple-server/server.js &
+    firefox http://127.0.0.1:8008 &
+    sleep 5
+    pkill node
 fi
 tput init
+
