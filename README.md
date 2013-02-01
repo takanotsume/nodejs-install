@@ -8,3 +8,7 @@ It will also launch as a test a simple nodejs server at the end ...
 
     * git clone https://github.com/takanotsume/nodejs-install.git
     * bash nodejs-install/nodejs-install.sh
+    
+Resources for Newcomers
+---
+  - [nodejs.org](http://nodejs.org/)
