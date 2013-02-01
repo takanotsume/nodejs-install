@@ -42,23 +42,20 @@ else
    	fi
 fi
 
-# Check installed packages
-npmPackagesInstalled=0
-if [ $nodeNpmInstalled == 1 ]; then
-    echo "npm is installed. Checking required packages: fs, redis"
-    if ! npm list | grep --quiet fs; then
-	npm install fs
-	echo "npm fs installed"
-    fi
-    if ! npm list | grep --quiet redis; then
-	npm install redis
-	echo "npm redis installed"
-    fi
-    npmPackagesInstalled=1
+# Check if git is intalled
+if ! which git > /dev/null; then
+	echo "Installing git"
+	sudo apt-get install git
 fi
-if [ $nodeNpmInstalled == 1 ] && [ $npmPackagesInstalled=1 ]; then
+
+if [ $nodeNpmInstalled == 1 ]; then
     echo "The cards are in your hands. Now it is up to you \"Pressure makes diamonds\""
-    node ./apps/simple-server/server.js &
+    # Check running nodejs-simple-server app
+    cd /tmp
+    git clone https://github.com/takanotsume/nodejs-simple-server.git
+    cd nodejs-simple-server
+    npm install
+    node ./server.js &
     firefox http://127.0.0.1:8008 &
     sleep 5
     pkill node
