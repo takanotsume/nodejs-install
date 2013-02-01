@@ -1,0 +1,10 @@
+{
+  "name": "simple-server",
+  "version": "0.0.1",
+  "engine": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "redis": "0.8.x"
+  }
+}
